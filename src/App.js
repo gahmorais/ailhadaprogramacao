@@ -1,9 +1,8 @@
-import "./App.css";
-
 function App() {
+
   return (
     <div className="App">
-      <h1>A Ilha da Programação</h1>
+      <h1>Pokedex</h1>
     </div>
   );
 }
