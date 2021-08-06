@@ -41,8 +41,8 @@ export default function PokemonInfo() {
           </h2>
           <Image
             src={pokemonData.sprites.other["official-artwork"].front_default}
-            width="240"
-            height="240"
+            width="120"
+            height="120"
             alt={pokemonData.name}
           />
         </div>
@@ -64,18 +64,19 @@ export default function PokemonInfo() {
           })}
         </div>
         <div>
-          <p>Habilidades</p>
-          {pokemonData.abilities.map((ability) => {
-            const abilityId = ability.ability.url.split("/")[6];
-
-            return (
-              <p key={ability.slot}>
-                <Link href={`/pokedex/abilities/${abilityId}`}>
-                  <a>{ability.ability.name}</a>
-                </Link>
-              </p>
-            );
-          })}
+          <p className="font-semibold text-lg ml-2">Habilidades</p>
+          <ul>
+            {pokemonData.abilities.map((ability) => {
+              const abilityId = ability.ability.url.split("/")[6];
+              return (
+                <li key={ability.slot} className="underline text-lg m-2">
+                  <Link href={`/pokedex/abilities/${abilityId}`}>
+                    <a>{ability.ability.name}</a>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </main>
     </div>

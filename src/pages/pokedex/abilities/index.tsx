@@ -1,3 +1,4 @@
+import { useRouter } from "next/dist/client/router";
 import { useState } from "react";
 import { useQuery } from "react-query";
 import Ability from "../../../components/Ability";
@@ -6,11 +7,16 @@ import PaginationButton from "../../../components/PaginationButton";
 import { getAbilities } from "../../../service/Api";
 
 export default function Index() {
+  const router = useRouter();
+  const { offset, limit } = router.query;
+  const render: boolean = router.isReady;
   const [pagination, setPagination] = useState<string>(
-    "https://pokeapi.co/api/v2/ability/?offset=0&limit=40"
+    `https://pokeapi.co/api/v2/ability/?offset=${offset}&limit=50`
   );
-  const { data: abilities, isLoading } = useQuery(pagination, async () =>
-    getAbilities(pagination)
+  const { data: abilities, isLoading } = useQuery(
+    pagination,
+    async () => getAbilities(pagination),
+    { enabled: render }
   );
 
   if (isLoading || !abilities) {
@@ -19,11 +25,14 @@ export default function Index() {
 
   function handleClick(url: string) {
     if (url !== null) {
+      const urlSplited = url.split("?");
+      router.push(`/pokedex/abilities/?${urlSplited[1]}`);
       setPagination(url);
     }
   }
   return (
     <div className="container mx-auto mt-4">
+      <h2 className="font-semibold text-2xl text-center m-4">Habilidades</h2>
       <div className="flex flex-wrap items-center justify-center">
         {abilities.results.map((abilities, index) => (
           <Ability key={index}>{abilities.url}</Ability>

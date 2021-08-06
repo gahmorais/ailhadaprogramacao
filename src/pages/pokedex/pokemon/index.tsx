@@ -5,13 +5,19 @@ import { getPokemonPagination } from "../../../service/Api";
 import PaginationButton from "../../../components/PaginationButton";
 import { useState } from "react";
 import Pokemon from "../../../components/Pokemon";
+import { useRouter } from "next/dist/client/router";
 
 export default function Index() {
+  const router = useRouter();
+  const { offset, limit } = router.query;
+  const render: boolean = router.isReady;
   const [pagination, setPagination] = useState<string>(
-    `https://pokeapi.co/api/v2/pokemon?offset=0&limit=20`
+    `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
   );
-  const { data, isFetching } = useQuery(pagination, async () =>
-    getPokemonPagination(pagination)
+  const { data, isFetching } = useQuery(
+    pagination,
+    async () => getPokemonPagination(pagination),
+    { enabled: render }
   );
 
   if (isFetching || !data) {
@@ -20,6 +26,8 @@ export default function Index() {
 
   function handleButtonClick(url: string) {
     if (url != null) {
+      const urlSplited = url.split("?");
+      router.push(`/pokedex/pokemon/?${urlSplited[1]}`);
       setPagination(url);
     }
   }
