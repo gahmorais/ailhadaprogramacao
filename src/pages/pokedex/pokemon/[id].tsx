@@ -7,6 +7,14 @@ import Image from "next/image";
 import { capitalFirstLetter } from "../../../helpers/formatString";
 import StatsBar from "../../../components/StatsBar";
 import Link from "next/link";
+import Navbar from "../../../components/Navbar";
+import Ability from "../../../components/Ability";
+import {
+  convertDecimeterToMeter,
+  convertHectogramToQuilogram,
+} from "../../../helpers/convert";
+import Title from "../../../components/Title";
+import link from "next/link";
 
 export default function PokemonInfo() {
   const router = useRouter();
@@ -22,57 +30,100 @@ export default function PokemonInfo() {
     return <Loading />;
   }
 
+  const { weight, height, name, abilities, stats, types } = pokemonData;
+
   const pokemonType = pokemonData.types[0].type.name;
   const colorType = getColorBackground(pokemonType);
+  const officialArtwork =
+    pokemonData.sprites.other["official-artwork"].front_default;
+  const alternativeArt = pokemonData.sprites.front_default;
+  const image = officialArtwork ? officialArtwork : alternativeArt;
 
+  const weightInKilogram = convertHectogramToQuilogram(weight)
+    .toString()
+    .replace(".", ",");
+  const heightInMeter = convertDecimeterToMeter(height)
+    .toString()
+    .replace(".", ",");
   return (
     <div
-      className={`bg-gradient-to-t from-${colorType}-100 to-${colorType}-600 h-screen`}
+      className={`bg-gradient-to-t bg-${pokemonType} flex flex-col h-screen`}
     >
+      <Navbar />
       <Head>
-        <title>Pokedex</title>
+        <title>Pokedex | {capitalFirstLetter(name)}</title>
         <link rel="icon" href="/pokebola.ico" />
       </Head>
 
-      <main className={`flex flex-col`}>
-        <div className="flex flex-col justify-center items-start pl-3">
-          <h2 className="w-full text-5xl font-semibold">
-            {capitalFirstLetter(pokemonData.name)}
-          </h2>
-          <Image
-            src={pokemonData.sprites.other["official-artwork"].front_default}
-            width="120"
-            height="120"
-            alt={pokemonData.name}
-          />
+      <main className="flex flex-col container space-y-4 items-center mx-auto">
+        <div className="flex flex-wrap space-x-2 m-4">
+          <span className="text-3xl font-semibold text-white">
+            {capitalFirstLetter(name)} -
+          </span>
+          <span className="text-3xl font-semibold text-white">
+            Nº {id.toString().padStart(3, "0")}
+          </span>
         </div>
-
-        <div className="flex border-2 border-gray-500 rounded-md p-4 flex-col w-60 ml-2">
-          <p className="font-semibold text-xl mb-1">Estatisticas</p>
-          {pokemonData.stats.map((stats, index) => {
-            return (
-              <div key={index}>
-                <StatsBar
-                  value={stats.base_stat}
-                  initialColor="red"
-                  finalColor="red"
-                >
-                  {stats.stat.name}
-                </StatsBar>
-              </div>
-            );
-          })}
+        <div className="flex flex-wrap justify-center space-x-8">
+          <Image src={image} width="240" height="240" alt={name} />
+          <div className="bg-white rounded-lg p-2 flex flex-col flex-wrap w-80 h-56 items-center justify-center text-center text-lg">
+            <Title>Peso</Title>
+            <span>{weightInKilogram} kg</span>
+            <Title>Altura</Title>
+            <span>{heightInMeter} m</span>
+            <div>
+              <Title>Habilidades</Title>
+              <ul className="text-center">
+                {abilities.map(({ ability }) => {
+                  const urlSplited = ability.url.split("/");
+                  const abilityId = urlSplited[6];
+                  return (
+                    <li className="text-md">
+                      <Link href={`/pokedex/abilities/${abilityId}`}>
+                        <a>{capitalFirstLetter(ability.name)}</a>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </div>
         </div>
-        <div>
-          <p className="font-semibold text-lg ml-2">Habilidades</p>
-          <ul>
-            {pokemonData.abilities.map((ability) => {
-              const abilityId = ability.ability.url.split("/")[6];
+        <div className="flex flex-wrap justify-center space-x-8 w-full">
+          <div className="flex flex-col items-center">
+            <Title>Atributos</Title>
+            <ul className="flex flex-col p-2 bg-white rounded-lg">
+              {stats.map(({ stat, base_stat }, index) => {
+                return (
+                  <li>
+                    <StatsBar key={index} value={base_stat}>
+                      {stat.name}
+                    </StatsBar>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+          <div className="flex flex-col items-center">
+            <Title>Tipo</Title>
+            <ul className="flex space-x-2">
+              {types.map(({ type }) => {
+                return (
+                  <li className={`text-white rounded-lg p-2 w-20 text-center bg-${type.name} border-2 border-gray-400 shadow-md rounded-lg`}>
+                    {capitalFirstLetter(type.name)}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
+        <div className="flex-wrap items-center flex flex-col">
+          <Title>Habilidades</Title>
+          <ul className="flex flex-wrap">
+            {abilities.map(({ ability }) => {
               return (
-                <li key={ability.slot} className="underline text-lg m-2">
-                  <Link href={`/pokedex/abilities/${abilityId}`}>
-                    <a>{ability.ability.name}</a>
-                  </Link>
+                <li>
+                  <Ability>{ability.url}</Ability>
                 </li>
               );
             })}

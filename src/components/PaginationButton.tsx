@@ -14,7 +14,7 @@ export default function PaginationButton({
   }
   return (
     <button
-      className="bg-blue-400 p-1 w-36 text-center rounded"
+      className="bg-blue-400 p-1 w-36 text-center text-white rounded"
       onClick={handleClick}
     >
       {description}

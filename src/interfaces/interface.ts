@@ -15,6 +15,17 @@ export interface IAbilityPage {
   }[];
 }
 
+export interface ITypePage {
+  count: number;
+  next: string;
+  previous: string;
+  results: {
+    name: string;
+    url: string;
+  }[];
+
+}
+
 interface IEffect {
   effect: string;
   language: {
@@ -35,7 +46,7 @@ interface IFlavorTextEntries {
   };
 }
 
-interface INamesAbilities {
+interface INames {
   language: {
     name: string;
     url: string;
@@ -58,7 +69,7 @@ export interface IAbilities {
   flavor_text_entries: IFlavorTextEntries[];
   id: number;
   name: string;
-  names: INamesAbilities[];
+  names: INames[];
   pokemon: IPokemonHasAbility[];
 }
 
@@ -104,7 +115,19 @@ export interface IPokemonData {
   name: string;
   id: number;
   sprites: {
+    back_default: string;
+    back_female: string | null;
+    back_shiny: string;
+    back_shiny_female: string | null;
+    front_default: string;
+    front_female: string | null;
+    front_shiny: string;
+    front_shiny_female: string | null;
     other: {
+      dream_world: {
+        front_default: string;
+        front_female: string | null;
+      };
       "official-artwork": {
         front_default: string;
       };
@@ -112,5 +135,30 @@ export interface IPokemonData {
   };
   types: IPokemonType[];
   stats: IPokemonStats[];
+  height: number;
   weight: number;
+}
+
+interface IDamage {
+  name: string;
+  url: string;
+}
+
+export interface IType {
+  damage_relations: {
+    double_damage_from: IDamage[];
+    double_damage_to: IDamage[];
+    half_damage_from: IDamage[];
+    half_damage_to: IDamage[];
+    no_damage_from: IDamage[];
+    no_damage_to: IDamage[];
+  };
+  id: number;
+  moves: IPokemonMove[];
+  name: string;
+  names: INames[];
+  pokemon: {
+    pokemon: IPokemon[];
+    slot: number;
+  }[];
 }

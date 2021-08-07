@@ -3,8 +3,6 @@ import { capitalFirstLetter } from "../helpers/formatString";
 interface IStatsBarProps {
   children: string;
   value: number;
-  initialColor: string;
-  finalColor: string;
 }
 
 function getColor(stat: string): string {
@@ -38,9 +36,9 @@ export default function StatsBar({
 }: IStatsBarProps) {
   return (
     <div
-      className={`border-2 bg-gradient-to-r from-${getColor(stat)}-300 to-${getColor(stat)}-500 flex justify-between pl-1 pr-2`}
+      className={`border-2 bg-gradient-to-r from-${getColor(stat)}-300 to-${getColor(stat)}-500 flex justify-between space-x-2 pl-1 pr-2`}
     >
-      <span>{capitalFirstLetter(stat)}</span>
+      <span>{capitalFirstLetter(stat).replace("-", " ")}</span>
       <span>{value}</span>
     </div>
   );

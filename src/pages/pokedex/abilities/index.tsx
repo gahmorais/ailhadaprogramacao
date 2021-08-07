@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useQuery } from "react-query";
 import Ability from "../../../components/Ability";
 import Loading from "../../../components/Loading";
+import Navbar from "../../../components/Navbar";
 import PaginationButton from "../../../components/PaginationButton";
 import { getAbilities } from "../../../service/Api";
 
@@ -31,21 +32,29 @@ export default function Index() {
     }
   }
   return (
-    <div className="container mx-auto mt-4">
-      <h2 className="font-semibold text-2xl text-center m-4">Habilidades</h2>
-      <div className="flex flex-wrap items-center justify-center">
-        {abilities.results.map((abilities, index) => (
-          <Ability key={index}>{abilities.url}</Ability>
-        ))}
+    <>
+      <Navbar />
+      <div className="container mx-auto mt-4">
+        <h2 className="font-semibold text-2xl text-center m-4">Habilidades</h2>
+        <ul className="flex flex-wrap items-center justify-center">
+          {abilities.results.map((abilities, index) => (
+            <li>
+              <Ability key={index}>{abilities.url}</Ability>
+            </li>
+          ))}
+        </ul>
+        <div className="flex justify-center mt-5 space-x-4 pl-3">
+          <PaginationButton
+            onButtonClick={handleClick}
+            url={abilities.previous}
+          >
+            Previous
+          </PaginationButton>
+          <PaginationButton onButtonClick={handleClick} url={abilities.next}>
+            Next
+          </PaginationButton>
+        </div>
       </div>
-      <div className="flex justify-center mt-5 space-x-4 pl-3">
-        <PaginationButton onButtonClick={handleClick} url={abilities.previous}>
-          Previous
-        </PaginationButton>
-        <PaginationButton onButtonClick={handleClick} url={abilities.next}>
-          Next
-        </PaginationButton>
-      </div>
-    </div>
+    </>
   );
 }

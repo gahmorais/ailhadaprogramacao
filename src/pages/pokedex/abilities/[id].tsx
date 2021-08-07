@@ -1,6 +1,7 @@
 import { useRouter } from "next/dist/client/router";
 import { useQuery } from "react-query";
 import Loading from "../../../components/Loading";
+import Navbar from "../../../components/Navbar";
 import Pokemon from "../../../components/Pokemon";
 import { getAbilitiesById } from "../../../service/Api";
 
@@ -25,6 +26,7 @@ export default function AbilitiesInfo() {
 
   return (
     <>
+      <Navbar />
       <div>{abilities.name}</div>
       <div>{effect?.effect}</div>
       <div className="flex flex-wrap">

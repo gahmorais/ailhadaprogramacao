@@ -4,6 +4,8 @@ import {
   IPokemonData,
   IAbilities,
   IAbilityPage,
+  IType,
+  ITypePage,
 } from "../interfaces/interface";
 
 export async function getPokemons(): Promise<IPokemonPage> {
@@ -28,16 +30,30 @@ export async function getPokemonDataById(id: string): Promise<IPokemonData> {
   return data;
 }
 
-export async function getAbilitiesByUrl(url:string): Promise<IAbilities> {
+export async function getAbilitiesByUrl(url: string): Promise<IAbilities> {
   const { data } = await axios.get(url);
   return data;
 }
-export async function getAbilitiesById(id:string): Promise<IAbilities> {
+export async function getAbilitiesById(id: string): Promise<IAbilities> {
   const { data } = await axios.get(`https://pokeapi.co/api/v2/ability/${id}`);
   return data;
 }
 
-export async function getAbilities(url:string): Promise<IAbilityPage> {
+export async function getAbilities(url: string): Promise<IAbilityPage> {
   const { data } = await axios.get(url);
+  return data;
+}
+
+export async function getTypesPagination(url: string): Promise<ITypePage> {
+  const { data } = await axios.get(url);
+  return data;
+}
+
+export async function getTypeByUrl(url: string): Promise<IType> {
+  const { data } = await axios.get(url);
+  return data;
+}
+export async function getTypeById(id: string): Promise<IType> {
+  const { data } = await axios.get(`https://pokeapi.co/api/v2/type/${id}`);
   return data;
 }

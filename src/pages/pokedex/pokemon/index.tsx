@@ -6,6 +6,7 @@ import PaginationButton from "../../../components/PaginationButton";
 import { useState } from "react";
 import Pokemon from "../../../components/Pokemon";
 import { useRouter } from "next/dist/client/router";
+import Navbar from "../../../components/Navbar";
 
 export default function Index() {
   const router = useRouter();
@@ -33,7 +34,8 @@ export default function Index() {
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col h-screen">
+      <Navbar />
       <Head>
         <title>Pokedex</title>
         <link rel="icon" href="/pokebola.ico" />
@@ -41,11 +43,15 @@ export default function Index() {
 
       <main>
         <h1 className="font-semibold text-2xl text-center">Pokedex</h1>
-        <div className="flex flex-wrap items-center mx-auto justify-center">
+        <ul className="flex flex-wrap items-center mx-auto justify-center">
           {data.results.map((pokemon, index) => {
-            return <Pokemon key={index}>{pokemon.url}</Pokemon>;
+            return (
+              <li>
+                <Pokemon key={index}>{pokemon.url}</Pokemon>
+              </li>
+            );
           })}
-        </div>
+        </ul>
         <div className="flex justify-center mt-5 space-x-4 pl-3">
           <PaginationButton
             onButtonClick={handleButtonClick}
