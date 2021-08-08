@@ -105,7 +105,7 @@ export default function Index() {
 
       <main className="flex flex-col items-center container mx-auto">
         <PageTitle>Pokemons</PageTitle>
-        <div className="pl-4 pr-4 h-10 w-2/5 sm:w-full md:w-full mt-4">
+        <div className="pl-4 pr-4 h-10 w-4/5 mt-4">
           <InputSearch
             placeHolder="Digite o nome do pokemon"
             onInputChange={handleInputChange}

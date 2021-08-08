@@ -35,8 +35,8 @@ export async function searchPokemon(value: string): Promise<IPokemon[]> {
   const { data } = await axios.get(
     `https://pokeapi.co/api/v2/pokemon?offset=0&limit=1118`
   );
-  const filteredPokemons = data.results.filter((pokemon) =>
-    pokemon.name.includes(value)
+  const filteredPokemons = data.results.filter((pokemon: IPokemon) =>
+    pokemon.name.includes(value.toLowerCase())
   );
 
   return filteredPokemons;
