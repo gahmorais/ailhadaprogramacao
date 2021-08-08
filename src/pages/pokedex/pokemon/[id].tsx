@@ -33,7 +33,6 @@ export default function PokemonInfo() {
   const { weight, height, name, abilities, stats, types } = pokemonData;
 
   const pokemonType = pokemonData.types[0].type.name;
-  const colorType = getColorBackground(pokemonType);
   const officialArtwork =
     pokemonData.sprites.other["official-artwork"].front_default;
   const alternativeArt = pokemonData.sprites.front_default;
@@ -47,7 +46,7 @@ export default function PokemonInfo() {
     .replace(".", ",");
   return (
     <div
-      className={`bg-gradient-to-t bg-${pokemonType} flex flex-col h-screen`}
+      className={`bg-${pokemonType} flex flex-col h-screen overflow-auto`}
     >
       <Navbar />
       <Head>
@@ -55,7 +54,7 @@ export default function PokemonInfo() {
         <link rel="icon" href="/pokebola.ico" />
       </Head>
 
-      <main className="flex flex-col container space-y-4 items-center mx-auto">
+      <main className="flex flex-col container space-y-4 items-center mx-auto flex-grow pb-10">
         <div className="flex flex-wrap space-x-2 m-4">
           <span className="text-3xl font-semibold text-white">
             {capitalFirstLetter(name)} -
@@ -132,56 +131,4 @@ export default function PokemonInfo() {
       </main>
     </div>
   );
-}
-
-function getColorBackground(pokemonType: string): string {
-  let color = "";
-  switch (pokemonType) {
-    case "normal":
-      break;
-    case "fighting":
-      break;
-    case "flying":
-      break;
-    case "poison":
-      color = "purple";
-      break;
-    case "ground":
-      break;
-    case "rock":
-      color = "brown";
-      break;
-    case "bug":
-      break;
-    case "ghost":
-      break;
-    case "steel":
-      break;
-    case "fire":
-      color = "yellow";
-      break;
-    case "water":
-      color = "blue";
-      break;
-    case "grass":
-      color = "green";
-      break;
-    case "electric":
-      break;
-    case "psychic":
-      break;
-    case "ice":
-      break;
-    case "dragon":
-      break;
-    case "dark":
-      break;
-    case "fairy":
-      break;
-    case "unknown":
-      break;
-    case "shadow":
-      break;
-  }
-  return color;
 }
