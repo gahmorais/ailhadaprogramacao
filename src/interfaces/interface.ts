@@ -1,29 +1,8 @@
-export interface IPokemonPage {
+export interface IPage {
   count: number;
   next: string;
   previous: string;
   results: IPokemon[];
-}
-
-export interface IAbilityPage {
-  count: number;
-  next: string;
-  previous: string;
-  results: {
-    name: string;
-    url: string;
-  }[];
-}
-
-export interface ITypePage {
-  count: number;
-  next: string;
-  previous: string;
-  results: {
-    name: string;
-    url: string;
-  }[];
-
 }
 
 interface IEffect {

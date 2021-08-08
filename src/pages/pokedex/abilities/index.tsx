@@ -5,18 +5,18 @@ import Ability from "../../../components/Ability";
 import Loading from "../../../components/Loading";
 import Navbar from "../../../components/Navbar";
 import PaginationButton from "../../../components/PaginationButton";
-import { getAbilities } from "../../../service/Api";
+import { getPagination } from "../../../service/Api";
 
 export default function Index() {
   const router = useRouter();
-  const { offset, limit } = router.query;
+  const { offset } = router.query;
   const render: boolean = router.isReady;
   const [pagination, setPagination] = useState<string>(
     `https://pokeapi.co/api/v2/ability/?offset=${offset}&limit=50`
   );
   const { data: abilities, isLoading } = useQuery(
     pagination,
-    async () => getAbilities(pagination),
+    async () => getPagination(pagination),
     { enabled: render }
   );
 

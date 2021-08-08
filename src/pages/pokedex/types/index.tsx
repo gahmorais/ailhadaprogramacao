@@ -6,18 +6,19 @@ import Loading from "../../../components/Loading";
 import Navbar from "../../../components/Navbar";
 import PaginationButton from "../../../components/PaginationButton";
 import Type from "../../../components/Type";
-import { getTypesPagination } from "../../../service/Api";
+import { getPagination } from "../../../service/Api";
 
 export default function Types() {
   const router = useRouter();
   const { offset, limit } = router.query;
   const render: boolean = router.isReady;
-  const [pagination, setPagination] = useState<string>(
-    `https://pokeapi.co/api/v2/type?offset=${offset}&limit=${limit}`
-  );
+
   const { data: types, isLoading } = useQuery(
-    pagination,
-    async () => getTypesPagination(pagination),
+    "pagination",
+    async () =>
+      getPagination(
+        `https://pokeapi.co/api/v2/type?offset=${offset}&limit=${limit}`
+      ),
     { enabled: render }
   );
 
@@ -35,7 +36,7 @@ export default function Types() {
         <link rel="icon" href="/pokebola.ico" />
       </Head>
       <main className="container mx-auto flex flex-col items-center">
-      <h2 className="font-semibold text-2xl text-center m-4">Habilidades</h2>
+        <h2 className="font-semibold text-2xl text-center m-4">Habilidades</h2>
         <ul className="flex flex-wrap justify-center">
           {results.map((type, index) => {
             return (
