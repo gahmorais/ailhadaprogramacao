@@ -11,7 +11,9 @@ module.exports = {
     extend: {},
   },
   variants: {
-    extend: {},
+    extend: {
+      animation: ["motion-safe"],
+    },
   },
   plugins: [],
 };
@@ -40,7 +42,27 @@ const colors = {
   dark: "#705848",
   fairy: "#EE99AC",
   unknown: "#68A090",
-  shadow: "#57606f",
+  shadow: "#353b48",
+  "bug-dark": "#6D7815",
+  "dark-dark": "#49392F",
+  "dragon-dark": "#4924A1",
+  "electric-dark": "#A1871F",
+  "fairy-dark": "#9B6470",
+  "fighting-dark": "#7D1F1A",
+  "fire-dark": "#9C531F",
+  "flying-dark": "#6D5E9C",
+  "ghost-dark": "#493963",
+  "grass-dark": "#4E8234",
+  "ground-dark": "#927D44",
+  "ice-dark": "#638D8D",
+  "normal-dark": "#6D6D4E",
+  "poison-dark": "#682A68",
+  "psychic-dark": "#A13959",
+  "rock-dark": "#786824",
+  "steel-dark": "#787887",
+  "shadow-dark": "#2f3640",
+  "unknown-dark": "#44685E",
+  "water-dark": "#6890F0",
 };
 
 module.exports = {

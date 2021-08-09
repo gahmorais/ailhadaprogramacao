@@ -15,6 +15,7 @@ import {
 } from "../../../helpers/convert";
 import Title from "../../../components/Title";
 import link from "next/link";
+import Type from "../../../components/Type";
 
 export default function PokemonInfo() {
   const router = useRouter();
@@ -45,9 +46,7 @@ export default function PokemonInfo() {
     .toString()
     .replace(".", ",");
   return (
-    <div
-      className={`bg-${pokemonType} flex flex-col h-screen overflow-auto`}
-    >
+    <div className={`bg-${pokemonType} flex flex-col h-screen overflow-auto`}>
       <Navbar />
       <Head>
         <title>Pokedex | {capitalFirstLetter(name)}</title>
@@ -77,7 +76,7 @@ export default function PokemonInfo() {
                   const urlSplited = ability.url.split("/");
                   const abilityId = urlSplited[6];
                   return (
-                    <li className="text-md">
+                    <li className="text-md scale-100 transform hover:scale-125 font-semibold">
                       <Link href={`/pokedex/abilities/${abilityId}`}>
                         <a>{capitalFirstLetter(ability.name)}</a>
                       </Link>
@@ -88,7 +87,7 @@ export default function PokemonInfo() {
             </div>
           </div>
         </div>
-        <div className="flex flex-wrap justify-center space-x-8 w-full">
+        <div className="flex flex-wrap justify-center lg:space-x-8 w-full">
           <div className="flex flex-col items-center">
             <Title>Atributos</Title>
             <ul className="flex flex-col p-2 bg-white rounded-lg">
@@ -105,30 +104,20 @@ export default function PokemonInfo() {
           </div>
           <div className="flex flex-col items-center">
             <Title>Tipo</Title>
-            <ul className="flex space-x-2">
-              {types.map(({ type }) => {
+            <ul className="flex">
+              {types.map(({ type }, index) => {
                 return (
-                  <li className={`text-white rounded-lg p-2 w-20 text-center bg-${type.name} border-2 border-gray-400 shadow-md rounded-lg`}>
-                    {capitalFirstLetter(type.name)}
+                  <li key={index}>
+                    <Type>{type.url}</Type>
                   </li>
                 );
               })}
             </ul>
           </div>
         </div>
-        <div className="flex-wrap items-center flex flex-col">
-          <Title>Habilidades</Title>
-          <ul className="flex flex-wrap">
-            {abilities.map(({ ability }) => {
-              return (
-                <li>
-                  <Ability>{ability.url}</Ability>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
       </main>
     </div>
   );
 }
+
+

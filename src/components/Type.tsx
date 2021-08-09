@@ -18,7 +18,9 @@ export default function Type({ children: url }: ITypeProps) {
 
   const { name, id } = type;
   return (
-    <div className={`w-36 h-10 shadow-lg rounded-lg bg-${name} flex flex-col items-center justify-center`}>
+    <div
+      className={`text-white rounded-lg p-2 m-2 w-32 text-center bg-${name} border-2 border-gray-400 shadow-md rounded-lg hover:bg-${name}-dark`}
+    >
       <Link href={`/pokedex/types/${id}`}>
         <a>{capitalFirstLetter(name)}</a>
       </Link>
