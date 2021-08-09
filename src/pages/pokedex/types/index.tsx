@@ -1,10 +1,8 @@
 import { useRouter } from "next/dist/client/router";
 import Head from "next/head";
-import { useState } from "react";
 import { useQuery } from "react-query";
 import Loading from "../../../components/Loading";
 import Navbar from "../../../components/Navbar";
-import PaginationButton from "../../../components/PaginationButton";
 import Type from "../../../components/Type";
 import { getPagination } from "../../../service/Api";
 

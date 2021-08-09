@@ -8,10 +8,8 @@ import Pokemon from "../../../components/Pokemon";
 import { useRouter } from "next/dist/client/router";
 import Navbar from "../../../components/Navbar";
 import InputSearch from "../../../components/InputSearch";
-import SearchButton from "../../../components/SearchButton";
 import PokemonContainer from "../../../components/PokemonContainer";
 import PageTitle from "../../../components/PageTitle";
-import { IPokemon } from "../../../interfaces/interface";
 
 export default function Index() {
   const router = useRouter();

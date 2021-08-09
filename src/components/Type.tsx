@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Link from "next/link";
 import { useQuery } from "react-query";
 import { capitalFirstLetter } from "../helpers/formatString";
