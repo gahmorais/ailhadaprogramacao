@@ -8,7 +8,7 @@ export default function Navbar() {
       <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
         <div className=" flex text-sm lg:flex-grow items-center space-x-4 p-2">
           <div>
-            <Link href="/">
+            <Link href="/pokedex">
               <a>
                 <Image
                   src="/pokebola.png"

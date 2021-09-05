@@ -1,15 +1,15 @@
 import Head from "next/head";
 import { useQuery } from "react-query";
-import Loading from "../../../components/Loading";
-import { getPagination, searchPokemon } from "../../../service/Api";
-import PaginationButton from "../../../components/PaginationButton";
+import Loading from "components/Loading";
+import { getPagination, searchPokemon } from "service/Api";
+import PaginationButton from "components/PaginationButton";
 import { ReactElement, useState } from "react";
-import Pokemon from "../../../components/Pokemon";
+import Pokemon from "components/Pokemon";
 import { useRouter } from "next/dist/client/router";
-import Navbar from "../../../components/Navbar";
-import InputSearch from "../../../components/InputSearch";
-import PokemonContainer from "../../../components/PokemonContainer";
-import PageTitle from "../../../components/PageTitle";
+import Navbar from "components/Navbar";
+import InputSearch from "components/InputSearch";
+import PokemonContainer from "components/PokemonContainer";
+import PageTitle from "components/PageTitle";
 
 export default function Index() {
   const router = useRouter();
@@ -94,10 +94,11 @@ export default function Index() {
   }
 
   return (
+
     <div className="flex flex-col h-full">
       <Navbar />
       <Head>
-        <title>Pokedex</title>
+        <title>Pokedex | Pokemons</title>
         <link rel="icon" href="/pokebola.ico" />
       </Head>
 

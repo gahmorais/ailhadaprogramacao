@@ -1,4 +1,4 @@
-import { capitalFirstLetter } from "../helpers/formatString";
+import { capitalFirstLetter } from "helpers/formatString";
 
 interface IStatsBarProps {
   children: string;

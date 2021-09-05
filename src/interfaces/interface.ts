@@ -5,42 +5,40 @@ export interface IPage {
   results: IPokemon[];
 }
 
+export interface IGenericInterface {
+  name: string;
+  url: string;
+}
+
 interface IEffect {
   effect: string;
-  language: {
-    name: string;
-    url: string;
-  };
+  language: IGenericInterface;
 }
 
 interface IFlavorTextEntries {
   flavor_text: string;
-  language: {
-    name: string;
-    url: string;
-  };
-  version_group: {
-    name: string;
-    url: string;
-  };
+  language: IGenericInterface;
+  version_group: IGenericInterface;
 }
 
 interface INames {
-  language: {
-    name: string;
-    url: string;
-  };
+  language: IGenericInterface;
   name: string;
 }
 
 interface IPokemonHasAbility {
   is_hidden: boolean;
-  pokemon: {
-    name: string;
-    url: string;
-  };
+  pokemon: IPokemon;
   slot: number;
 }
+
+interface IPokemonAbilities {
+  ability: IGenericInterface;
+  is_hidden: boolean;
+  slot: number;
+}
+
+export interface IPokemon extends IGenericInterface {}
 
 export interface IAbilities {
   effect_changes: IEffect[];
@@ -52,40 +50,26 @@ export interface IAbilities {
   pokemon: IPokemonHasAbility[];
 }
 
+interface IVersionGroupDetails {
+  level_learned_at: number;
+  move_learn_method: IGenericInterface;
+  version_group: IGenericInterface;
+}
+
 interface IPokemonMove {
-  name: string;
-  url: string;
-}
-
-interface IPokemonAbilities {
-  ability: {
-    name: string;
-    url: string;
-  };
-  is_hidden: boolean;
-  slot: number;
-}
-
-export interface IPokemon {
-  name: string;
-  url: string;
+  move: IGenericInterface;
+  version_group_details: IVersionGroupDetails[];
 }
 
 export interface IPokemonStats {
   base_stat: number;
   effort: number;
-  stat: {
-    name: string;
-    url: string;
-  };
+  stat: IGenericInterface;
 }
 
 export interface IPokemonType {
   slot: number;
-  type: {
-    name: string;
-    url: string;
-  };
+  type: IGenericInterface;
 }
 
 export interface IPokemonData {
@@ -118,10 +102,7 @@ export interface IPokemonData {
   weight: number;
 }
 
-interface IDamage {
-  name: string;
-  url: string;
-}
+interface IDamage extends IGenericInterface {}
 
 export interface IType {
   damage_relations: {

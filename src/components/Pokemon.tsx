@@ -1,8 +1,8 @@
 import { useQuery } from "react-query";
 import Image from "next/image";
-import { getPokemonDataByUrl } from "../service/Api";
+import { getPokemonDataByUrl } from "service/Api";
 import Loading from "./Loading";
-import { capitalFirstLetter } from "../helpers/formatString";
+import { capitalFirstLetter } from "helpers/formatString";
 import Link from "next/link";
 
 interface IPokemonProps {

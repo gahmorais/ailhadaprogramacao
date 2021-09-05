@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useQuery } from "react-query";
-import { capitalFirstLetter } from "../helpers/formatString";
-import { getAbilitiesByUrl } from "../service/Api";
+import { capitalFirstLetter } from "helpers/formatString";
+import { getAbilitiesByUrl } from "service/Api";
 import Loading from "./Loading";
 
 interface IAbilityProps {

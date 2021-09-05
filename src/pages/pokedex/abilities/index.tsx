@@ -1,11 +1,12 @@
 import { useRouter } from "next/dist/client/router";
+import Head from 'next/head'
 import { useState } from "react";
 import { useQuery } from "react-query";
-import Ability from "../../../components/Ability";
-import Loading from "../../../components/Loading";
-import Navbar from "../../../components/Navbar";
-import PaginationButton from "../../../components/PaginationButton";
-import { getPagination } from "../../../service/Api";
+import Ability from "components/Ability";
+import Loading from "components/Loading";
+import Navbar from "components/Navbar";
+import PaginationButton from "components/PaginationButton";
+import { getPagination } from "service/Api";
 
 export default function Index() {
   const router = useRouter();
@@ -34,6 +35,10 @@ export default function Index() {
   return (
     <>
       <Navbar />
+      <Head>
+        <title>Pokedex | Habilidades</title>
+        <link rel="icon" href="/pokebola.ico" />
+      </Head>
       <div className="container mx-auto mt-4">
         <h2 className="font-semibold text-2xl text-center m-4">Habilidades</h2>
         <ul className="flex flex-wrap items-center justify-center">

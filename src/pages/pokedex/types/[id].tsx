@@ -1,11 +1,11 @@
 import { useRouter } from "next/dist/client/router";
 import Head from "next/head";
 import { useQuery } from "react-query";
-import Loading from "../../../components/Loading";
-import Navbar from "../../../components/Navbar";
-import Title from "../../../components/Title";
-import { capitalFirstLetter } from "../../../helpers/formatString";
-import { getTypeById } from "../../../service/Api";
+import Loading from "components/Loading";
+import Navbar from "components/Navbar";
+import Title from "components/Title";
+import { capitalFirstLetter } from "helpers/formatString";
+import { getTypeById } from "service/Api";
 
 export default function TypesInfo() {
   const router = useRouter();

@@ -1,10 +1,10 @@
 import { useRouter } from "next/dist/client/router";
 import Head from "next/head";
 import { useQuery } from "react-query";
-import Loading from "../../../components/Loading";
-import Navbar from "../../../components/Navbar";
-import Type from "../../../components/Type";
-import { getPagination } from "../../../service/Api";
+import Loading from "components/Loading";
+import Navbar from "components/Navbar";
+import Type from "components/Type";
+import { getPagination } from "service/Api";
 
 export default function Types() {
   const router = useRouter();
@@ -30,11 +30,11 @@ export default function Types() {
     <>
       <Navbar />
       <Head>
-        <title>Pokedex | Types</title>
+        <title>Pokedex | Tipos</title>
         <link rel="icon" href="/pokebola.ico" />
       </Head>
       <main className="container mx-auto flex flex-col items-center">
-        <h2 className="font-semibold text-2xl text-center m-4">Habilidades</h2>
+        <h2 className="font-semibold text-2xl text-center m-4">Tipos de Pokemon</h2>
         <ul className="flex flex-wrap justify-center">
           {results.map((type, index) => {
             return (
