@@ -2,11 +2,11 @@ import { useRouter } from "next/dist/client/router";
 import Head from 'next/head'
 import { useState } from "react";
 import { useQuery } from "react-query";
-import Ability from "components/Ability";
+import Ability from "components/pokedex/Ability";
 import Loading from "components/Loading";
 import Navbar from "components/Navbar";
-import PaginationButton from "components/PaginationButton";
-import { getPagination } from "service/Api";
+import PaginationButton from "components/pokedex/PaginationButton";
+import { getPagination } from "service/ApiPokedex";
 
 export default function Index() {
   const router = useRouter();

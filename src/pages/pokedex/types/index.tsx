@@ -3,8 +3,8 @@ import Head from "next/head";
 import { useQuery } from "react-query";
 import Loading from "components/Loading";
 import Navbar from "components/Navbar";
-import Type from "components/Type";
-import { getPagination } from "service/Api";
+import Type from "components/pokedex/Type";
+import { getPagination } from "service/ApiPokedex";
 
 export default function Types() {
   const router = useRouter();

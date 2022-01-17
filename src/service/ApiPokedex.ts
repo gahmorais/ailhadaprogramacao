@@ -5,7 +5,7 @@ import {
   IType,
   IPage,
   IPokemon,
-} from "interfaces/interface";
+} from "interfaces/interface_pokedex";
 
 export async function getPokemonDataByUrl(url: string): Promise<IPokemonData> {
   const { data: PokemonData } = await axios.get(url);

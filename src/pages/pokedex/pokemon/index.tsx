@@ -1,14 +1,14 @@
 import Head from "next/head";
 import { useQuery } from "react-query";
 import Loading from "components/Loading";
-import { getPagination, searchPokemon } from "service/Api";
-import PaginationButton from "components/PaginationButton";
+import { getPagination, searchPokemon } from "service/ApiPokedex";
+import PaginationButton from "components/pokedex/PaginationButton";
 import { ReactElement, useState } from "react";
-import Pokemon from "components/Pokemon";
+import Pokemon from "components/pokedex/Pokemon";
 import { useRouter } from "next/dist/client/router";
 import Navbar from "components/Navbar";
-import InputSearch from "components/InputSearch";
-import PokemonContainer from "components/PokemonContainer";
+import InputSearch from "components/pokedex/InputSearch";
+import PokemonContainer from "components/pokedex/PokemonContainer";
 import PageTitle from "components/PageTitle";
 
 export default function Index() {

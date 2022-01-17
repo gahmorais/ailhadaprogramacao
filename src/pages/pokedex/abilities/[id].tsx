@@ -3,10 +3,10 @@ import Head from "next/head";
 import { useQuery } from "react-query";
 import Loading from "components/Loading";
 import Navbar from "components/Navbar";
-import Pokemon from "components/Pokemon";
+import Pokemon from "components/pokedex/Pokemon";
 import Title from "components/Title";
 import { capitalFirstLetter } from "helpers/formatString";
-import { getAbilitiesById } from "service/Api";
+import { getAbilitiesById } from "service/ApiPokedex";
 
 export default function AbilitiesInfo() {
   const router = useRouter();

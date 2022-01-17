@@ -5,7 +5,7 @@ import Loading from "components/Loading";
 import Navbar from "components/Navbar";
 import Title from "components/Title";
 import { capitalFirstLetter } from "helpers/formatString";
-import { getTypeById } from "service/Api";
+import { getTypeById } from "service/ApiPokedex";
 
 export default function TypesInfo() {
   const router = useRouter();

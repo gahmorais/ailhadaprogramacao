@@ -2,10 +2,10 @@ import { useRouter } from "next/dist/client/router";
 import Loading from "components/Loading";
 import { useQuery } from "react-query";
 import Head from "next/head";
-import { getPokemonDataById } from "service/Api";
+import { getPokemonDataById } from "service/ApiPokedex";
 import Image from "next/image";
 import { capitalFirstLetter } from "helpers/formatString";
-import StatsBar from "components/StatsBar";
+import StatsBar from "components/pokedex/StatsBar";
 import Link from "next/link";
 import Navbar from "components/Navbar";
 import {
@@ -13,8 +13,8 @@ import {
   convertHectogramToQuilogram,
 } from "helpers/convert";
 import Title from "components/Title";
-import Type from "components/Type";
-import Move from "components/Move";
+import Type from "components/pokedex/Type";
+import Move from "components/pokedex/Move";
 
 export default function PokemonInfo() {
   const router = useRouter();

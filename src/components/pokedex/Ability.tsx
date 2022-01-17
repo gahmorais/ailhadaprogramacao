@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { useQuery } from "react-query";
 import { capitalFirstLetter } from "helpers/formatString";
-import { getAbilitiesByUrl } from "service/Api";
-import Loading from "./Loading";
+import { getAbilitiesByUrl } from "service/ApiPokedex";
+import Loading from "../Loading";
 
 interface IAbilityProps {
   children: string;

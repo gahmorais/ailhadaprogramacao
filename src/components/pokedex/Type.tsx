@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { useQuery } from "react-query";
 import { capitalFirstLetter } from "helpers/formatString";
-import { getTypeByUrl } from "service/Api";
-import Loading from "./Loading";
+import { getTypeByUrl } from "service/ApiPokedex";
+import Loading from "../Loading";
 
 interface ITypeProps {
   children: string;
