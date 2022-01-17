@@ -1,4 +1,4 @@
-## Projeto desenvolvido no bootcampo do IGTI dop curso de Desenvolvedor React.
+## Projeto desenvolvido no bootcampo IGTI do curso de Desenvolvedor React.
 
 ### Tecnologias do projeto
     * Typescript
@@ -6,7 +6,7 @@
     * Heroku
     * ExpressJS
 
-### O backend está hospedado no Heroku e é servido a partir de um arquivo JSON com os dados usando ExpressJS.
+### O backend está hospedado no Heroku (https://www.heroku.com/) e é servido utilizando ExpressJS.
 
 Api -> https://thawing-plateau-66183.herokuapp.com
 
