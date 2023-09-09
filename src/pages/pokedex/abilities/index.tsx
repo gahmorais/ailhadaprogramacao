@@ -1,5 +1,5 @@
 import { useRouter } from "next/dist/client/router";
-import Head from 'next/head'
+import Head from "next/head";
 import { useState } from "react";
 import { useQuery } from "react-query";
 import Ability from "components/pokedex/Ability";
@@ -43,9 +43,7 @@ export default function Index() {
         <h2 className="font-semibold text-2xl text-center m-4">Habilidades</h2>
         <ul className="flex flex-wrap items-center justify-center">
           {abilities.results.map((abilities, index) => (
-            <li>
-              <Ability key={index}>{abilities.url}</Ability>
-            </li>
+            <Ability key={index}>{abilities.url}</Ability>
           ))}
         </ul>
         <div className="flex justify-center mt-5 space-x-4 pl-3">

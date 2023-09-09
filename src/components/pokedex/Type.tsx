@@ -21,9 +21,7 @@ export default function Type({ children: url }: ITypeProps) {
     <div
       className={`text-white rounded-lg p-2 m-2 w-32 text-center bg-${name} border-2 border-gray-400 shadow-md rounded-lg hover:bg-${name}-dark`}
     >
-      <Link href={`/pokedex/types/${id}`}>
-        <a>{capitalFirstLetter(name)}</a>
-      </Link>
+      <Link href={`/pokedex/types/${id}`}>{capitalFirstLetter(name)}</Link>
     </div>
   );
 }

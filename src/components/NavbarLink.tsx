@@ -10,10 +10,11 @@ export default function NavbarLink({
   path,
 }: INavbarLogoProps) {
   return (
-    <Link href={path}>
-      <a className="block lg:inline-block lg:mt-0 text-teal-200 hover:text-red font-semibold text-lg text-white">
-        {description}
-      </a>
+    <Link
+      className="block lg:inline-block lg:mt-0 text-teal-200 hover:text-red font-semibold text-lg text-white"
+      href={path}
+    >
+      {description}
     </Link>
   );
 }

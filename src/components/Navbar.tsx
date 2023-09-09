@@ -9,14 +9,12 @@ export default function Navbar() {
         <div className=" flex text-sm lg:flex-grow items-center space-x-4 p-2">
           <div>
             <Link href="/pokedex">
-              <a>
-                <Image
-                  src="/pokebola.png"
-                  height="40"
-                  width="40"
-                  alt="icone-pokebola"
-                />
-              </a>
+              <Image
+                src="/pokebola.png"
+                height="40"
+                width="40"
+                alt="icone-pokebola"
+              />
             </Link>
           </div>
           <NavbarLink path="/pokedex/pokemon">Pokemon</NavbarLink>

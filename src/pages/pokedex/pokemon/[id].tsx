@@ -81,7 +81,7 @@ export default function PokemonInfo() {
                       className="text-md scale-100 transform hover:scale-125 font-semibold"
                     >
                       <Link href={`/pokedex/abilities/${abilityId}`}>
-                        <a>{capitalFirstLetter(ability.name)}</a>
+                        {capitalFirstLetter(ability.name)}
                       </Link>
                     </li>
                   );
@@ -121,31 +121,31 @@ export default function PokemonInfo() {
           <div className="flex flex-wrap w-7/12 ml-2 mr-2 items-center justify-center border-2 border-white rounded-lg p-4">
             {/* prettier-ignore */}
             {sprites.front_default && (
-              <Image src={sprites.front_default} height="100" width="100" />
+              <Image alt="" src={sprites.front_default} height="100" width="100" />
             )}
             {/* prettier-ignore */}
             {sprites.back_default && (
-              <Image src={sprites.back_default} height="100" width="100" />
+              <Image alt="" src={sprites.back_default} height="100" width="100" />
             )}
             {/* prettier-ignore */}
             {sprites.front_female && (
-              <Image src={sprites.front_female} height="100" width="100" />
+              <Image alt="" src={sprites.front_female} height="100" width="100" />
             )}
             {/* prettier-ignore */}
             {sprites.back_female && (
-              <Image src={sprites.back_female} height="100" width="100" />
+              <Image alt="" src={sprites.back_female} height="100" width="100" />
             )}
             {/* prettier-ignore */}
             {sprites.front_shiny && (
-              <Image src={sprites.front_shiny} height="100" width="100" />
+              <Image alt="" src={sprites.front_shiny} height="100" width="100" />
             )}
             {/* prettier-ignore */}
             {sprites.back_shiny && (
-              <Image src={sprites.back_shiny} height="100" width="100" />
+              <Image alt="" src={sprites.back_shiny} height="100" width="100" />
             )}
             {/* prettier-ignore */}
             {sprites.front_shiny_female && (
-              <Image
+              <Image alt=""
                 src={sprites.front_shiny_female}
                 height="100"
                 width="100"
@@ -153,7 +153,7 @@ export default function PokemonInfo() {
             )}
             {/* prettier-ignore */}
             {sprites.back_shiny_female && (
-              <Image src={sprites.back_shiny_female} height="100" width="100" />
+              <Image alt="" src={sprites.back_shiny_female} height="100" width="100" />
             )}
           </div>
         </section>

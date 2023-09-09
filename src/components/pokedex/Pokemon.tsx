@@ -23,9 +23,7 @@ export default function Pokemon({ children: url }: IPokemonProps) {
   return (
     <div className="flex flex-col m-2 shadow-lg p-4 rounded-lg">
       <Link href={`/pokedex/pokemon/${data.id}`}>
-        <a>
-          <Image src={image} width="120" height="120" alt={data.name} />
-        </a>
+        <Image src={image} width="120" height="120" alt={data.name} />
       </Link>
       <span className="text-center font-semibold">
         {capitalFirstLetter(data.name)}
